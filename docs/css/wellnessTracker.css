@@ -1,0 +1,459 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Background Video */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -2;
+    opacity: 0.5; /* Adjust opacity to make text more readable */
+    object-fit: cover; /* Ensures the video covers the entire area */
+}
+
+/* Overlay Effect for Content */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Darker overlay */
+    z-index: -1;
+}
+
+/* Background & General Styling */
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    /*background-image: url('Images/anxiety.png'); /* Replace with your image path 
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+    color: #333;
+    position: relative;
+    background-color: #d4ccc5;
+
+}
+
+/* Overlay Effect for Content */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Darker overlay */
+    z-index: -1;
+}
+
+header {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+header h1{
+    color: black;
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+.company-name {
+    font-family: 'Tangerine', cursive;
+    font-size: 3em;
+    color: #00796b;
+    margin: 0;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.company-name:hover {
+    color: #004d40;
+    transform: scale(1.05);
+}
+
+/*navbar*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scrollbar-width: none;
+}
+
+header {
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 99px;
+  padding: 10px;
+}
+header nav a.active {
+  color: white;
+  background-color: black;
+}
+header nav a:hover {
+  color: white;
+  background-color: black;
+}
+
+header nav:hover > a:not(:hover) {
+  color: black;
+  background-color: white;
+}
+/* Page Title */
+#page-title {
+    text-align: center;
+    font-size: 50px;
+    font-family: "Dela Gothic One";
+    color: #0f1f7d; /* Calming blue */
+ 
+    background-color: #d4ccc5;
+
+    
+}
+
+/* Quiz Popup Button */
+#quiz-popup-button {
+    display: block;
+
+    padding: 15px 30px;
+    font-size: 22px;
+    background-color: #ff99cc; /* Soft pink */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-family: "Albert Sans";
+}
+
+#quiz-popup-button:hover {
+    background-color: #ff66b2; /* Slightly darker pink */
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 60%;
+    font-family: 'Inconsolata', monospace;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+#close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styling */
+form p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+form label {
+    margin-right: 10px;
+}
+
+form input[type="text"], 
+form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    background-color: #42a5f5; /* Calm blue */
+    color: white;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #1e88e5; /* Darker blue */
+}
+
+/* Quiz History Table */
+#quiz-history {
+    width: 90%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    font-family: 'Inconsolata', monospace;
+    background-color: rgba(255, 255, 255, 0.4); /* Adjusted transparency */
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+#quiz-history th, #quiz-history td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+#quiz-history th {
+    background-color: rgba(66, 165, 245, 0.6); /* Calming blue with slight transparency */
+    color: white;
+}
+
+#quiz-history td {
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.6); /* Light transparency for table rows */
+}
+
+
+/* Feedback Message */
+#feedback-message {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    font-size: 18px;
+    background-color: #e3f2fd; /* Light blue */
+    border-left: 5px solid #42a5f5; /* Calm blue */
+    font-family: 'Droid Sans', sans-serif;
+    display: none;
+    border-radius: 10px;
+}
+
+/* Modify/Delete Buttons */
+.modify-button, .delete-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modify-button {
+    background-color: #64b5f6; /* Light blue */
+    color: white;
+}
+
+.modify-button:hover {
+    background-color: #42a5f5; /* Calm blue */
+    transform: scale(1.05);
+}
+
+.delete-button {
+    background-color: #ef5350; /* Soft red */
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f; /* Darker red */
+    transform: scale(1.05);
+}
+
+#video-recommendation {
+    width: 70%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: transparent;
+    border-left: 5px solid #4CAF50;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+#video-recommendation h2 {
+    font-size: 24px;
+   
+    color: rgb(68, 68, 230);
+}
+
+/* Social Media Icons Container */
+.social-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Space between icons */
+    
+}
+
+/* Common Styles for all Social Media Links */
+.social-icons a {
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    color: #fff;
+}
+
+/* Facebook Icon */
+.social-icons .facebook {
+    background-color: #1877F2; 
+}
+
+.social-icons .facebook:hover {
+    background-color: #145dbf; 
+}
+
+/* Instagram Icon */
+.social-icons .instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); /* Instagram gradient */
+}
+
+.social-icons .instagram:hover {
+    transform: scale(1.1); 
+}
+
+/* WhatsApp Icon */
+.social-icons .whatsapp {
+    background-color: #25D366; 
+}
+
+.social-icons .whatsapp:hover {
+    background-color: #1da851; 
+}
+
+/* Icon Font Size */
+.social-icons i {
+    font-size: 24px;
+    color: #fff;
+}
+
+footer {
+    background-color: #e0f7fa;
+    padding: 10px;
+    font-size: 1em;
+    color: #00796b;
+}
+.music-icon {
+    position: absolute;
+    margin-left: 1400px;
+   margin-top: 300px;
+    border-radius: 50%;
+  }
+  
+  .music-icon:hover {
+    transform: scale(1.1);
+  }
+  /* Profile Dropdown Style */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+  }
+  
+  .profile-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 60%;
+    
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content p {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .logout-button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .logout-button:hover {
+    background-color: #ddd;
+  }
+  
+  .profile-dropdown:hover .dropdown-content {
+    display: block;
+  }
+  

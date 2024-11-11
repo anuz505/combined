@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MOODBOOST</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-16" />
+    <meta name="author" content="Sujal Maharjan" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/music.css" />
+
+    <!--         <link rel="preconnect" href="https://fonts.googleapis.com">
+	      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet"> -->
+  </head>
+  <body>
+    <header>
+      <h1>AuraSync</h1>
+      <nav>
+        <a href="./index.html" class="active">Home</a>
+        <a href="./aboutus.html">About</a>
+        <a href="./lesson.html">Lessons</a>
+
+        <a href="./contact.html">Contact</a>
+        <a href="blogs.html">Blogs and Videos</a>
+
+        <a href="./wellnessTracker.html">wellnessTracker</a>
+        <div class="profile-dropdown">
+          <img
+            src="pics/profile-icon.jpg"
+            alt="Profile Icon"
+            class="profile-icon"
+          />
+          <div class="dropdown-content">
+            <p>Hello, User</p>
+            <a href="./login.html" class="logout-button">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="container">
+      <h1>MOOD BOOSTER</h1>
+
+      <div id="buttons">
+        <button id="relax">Relax</button>
+        <button id="romantic">Romantic</button>
+        <button id="sad">Sad</button>
+        <button id="happy">Happy</button>
+        <button id="hopeful">Hopeful</button>
+      </div>
+    </div>
+    <section id="info">Press <b>[P]</b> to pause audio</section>
+
+    <script src="./js/music.js"></script>
+    <script>
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

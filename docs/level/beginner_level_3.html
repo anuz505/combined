@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/individual_lesson.css" />
+    <title>Beginner Lessons</title>
+  </head>
+  <header>
+    <h1>AuraSync</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../aboutus.html">About</a>
+      <a href="../lesson.html" class="active">Lessons</a>
+      <a href="../profile.html">Profile</a>
+    </nav>
+  </header>
+  <body>
+    <div class="lessons">
+      <div class="lesson1">
+        <div class="text">
+          <h1 class="l1">Lesson 3</h1>
+          <h1>Visualization</h1>
+          <p>
+            Imagine a peaceful scene or place to relax you mind. listen to the
+            music.
+          </p>
+        </div>
+        <div class="timer-container">
+          <div class="timer-display" id="timer">05:00</div>
+          <div class="buttons">
+            <button id="start-btn" class="btn">Start</button>
+            <button id="pause-btn" class="btn">Pause</button>
+            <button id="reset-btn" class="btn">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div class="gif">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/BHACKCNDMW8?si=SaMcKbOqi99X3LwF"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <button id="next" class="next">Next</button>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+
+          <h2>🎉 Well Done! You've Completed the Visualization Exercise! 🎉</h2>
+          <img src="../pics/badges/Mindfullnessnewbie.jpeg" />
+          <b>Mindfulness Newbie 🏅</b>
+          <div class="result" id="result"></div>
+
+          <button id="continue">Continue</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let timer;
+      let timeRemaining = 300; // 5 minutes in seconds
+      const timerDisplay = document.getElementById("timer");
+      const startBtn = document.getElementById("start-btn");
+      const pauseBtn = document.getElementById("pause-btn");
+      const resetBtn = document.getElementById("reset-btn");
+
+      function updateTimerDisplay() {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        timerDisplay.textContent = `${String(minutes).padStart(
+          2,
+          "0"
+        )}:${String(seconds).padStart(2, "0")}`;
+      }
+
+      function startTimer() {
+        if (!timer) {
+          timer = setInterval(() => {
+            if (timeRemaining > 0) {
+              timeRemaining--;
+              updateTimerDisplay();
+            } else {
+              clearInterval(timer);
+              timer = null;
+            }
+          }, 1000);
+        }
+      }
+
+      function pauseTimer() {
+        clearInterval(timer);
+        timer = null;
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = null;
+        timeRemaining = 300;
+        updateTimerDisplay();
+      }
+
+      startBtn.addEventListener("click", startTimer);
+      pauseBtn.addEventListener("click", pauseTimer);
+      resetBtn.addEventListener("click", resetTimer);
+
+      // Initialize the timer display
+      updateTimerDisplay();
+
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("next");
+
+      var span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = () => {
+        modal.style.display = "block";
+      };
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      var continueBTN = document.getElementById("continue");
+      continueBTN.onclick = () => {
+        // Get the existing badges from local storage or initialize an empty array
+        let badges = JSON.parse(localStorage.getItem("badges")) || [];
+
+        // Add the new badge to the array
+        badges.push("mindfulness_newbie");
+
+        // Store the updated array back in local storage
+        localStorage.setItem("badges", JSON.stringify(badges));
+        window.location.href = "../lesson.html";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scrollbar-width: none;
+}
+
+header {
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 99px;
+  padding: 10px;
+}
+header nav a.active {
+  color: white;
+  background-color: black;
+}
+header nav a:hover {
+  color: white;
+  background-color: black;
+}
+
+header nav:hover > a:not(:hover) {
+  color: black;
+  background-color: white;
+}
+/* Profile Hero Section */
+.profile-hero {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.username-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.username-container img {
+  margin-left: 10px;
+  width: 5%;
+  height: auto;
+}
+.cover-photo img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.profile-details {
+  position: relative;
+  top: -80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+}
+
+.profile-info h1 {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 36px;
+  margin-top: 10px;
+  color: #192b3d;
+}
+
+.profile-info p {
+  font-size: 18px;
+  color: #555;
+}
+
+button#logout {
+  background-color: #192b3d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button#logout:hover {
+  background-color: #34495e;
+  color: #cc5b4f;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #192b3d;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 400px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-container button {
+  background-color: #cc5b4f;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+  background-color: #b44a3e;
+}
+
+.login-container p {
+  margin-top: 20px;
+}
+
+/*Badges*/
+.hh {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Dela Gothic One", sans-serif;
+  color: #192b3d;
+  font-size: 2em;
+}
+.profile-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.badge {
+  border-color: #45a049;
+  background-color: #e6ffe6;
+  color: #192b3d;
+  border: 2px solid #cc5b4f;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 20px;
+}
+
+.badge img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.badge h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+.badge p {
+  font-size: 14px;
+  margin: 0;
+  font-family: "Albert Sans", sans-serif;
+}
+
+.badge:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.badge.active {
+  border-color: #45a049;
+  background-color: #e6ffe6;
+}
+.badge.inactive {
+  border-color: #ccc;
+  background-color: #f4f4f4;
+  color: #aaa;
+}
+.badge.inactive img {
+  filter: grayscale(100%);
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-info h1 {
+    font-size: 28px;
+  }
+
+  .profile-info p {
+    font-size: 16px;
+  }
+
+  .badge-section h2 {
+    font-size: 24px;
+  }
+
+  #badges-container .badge {
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+  }
+}
+
+.music-icon {
+  position: absolute;
+  margin-right: 1000px;
+ 
+  
+}
+
+.music-icon:hover {
+  transform: scale(1.1);
+}

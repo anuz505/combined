@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/individual_lesson.css" />
+    <title>Beginner Lessons</title>
+  </head>
+  <header>
+    <h1>AuraSync</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../aboutus.html">About</a>
+      <a href="../lesson.html" class="active">Lessons</a>
+      <a href="../profile.html">Profile</a>
+    </nav>
+  </header>
+  <body>
+    <div class="lessons">
+      <div class="lesson1">
+        <div class="text">
+          <h1 class="l1">Lesson 1</h1>
+          <h1>Mindful Breathing</h1>
+          <p>Do this for about 2-4 minutes.</p>
+          <p>Here, is the timer and you can start whenever you want.</p>
+        </div>
+        <div class="timer-container">
+          <div class="timer-display" id="timer">00:00:00</div>
+          <div class="buttons">
+            <button id="start-btn" class="btn">Start</button>
+            <button id="pause-btn" class="btn">Pause</button>
+            <button id="reset-btn" class="btn">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div class="gif">
+        <img
+          loading="lazy"
+          decoding="async"
+          width="400"
+          height="400"
+          src="https://opryshok.com/wp-content/uploads/2023/10/4-7-8 breathing.gif"
+          data-lazy-type="image"
+          data-lazy-src="https://opryshok.com/wp-content/uploads/2023/10/4-7-8 breathing.gif"
+          alt="What is the 4-7-8 breathing method"
+          class="lazy wp-image-3294 lazy-loaded"
+        />
+      </div>
+      <button id="next" class="next">Next</button>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+
+          <h2>
+            🎉 Congrats! You've Completed the Mindful Breathing Exercise! 🎉
+          </h2>
+          <b>Badge Earned: "Calm Beginner" 🏅</b>
+          <img src="../pics/badges/Calmbeginner.jpeg" />
+          <p>
+            Take a moment to notice how you feel. Your focus and calm have
+            improved!
+          </p>
+          <button id="home">Home</button>
+          <button id="continue">Continue</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let timerInterval;
+    let elapsedTime = 0;
+    let isPaused = true;
+
+    const timerDisplay = document.getElementById("timer");
+    const startBtn = document.getElementById("start-btn");
+    const pauseBtn = document.getElementById("pause-btn");
+    const resetBtn = document.getElementById("reset-btn");
+
+    function updateTime() {
+      const hours = Math.floor(elapsedTime / 3600);
+      const minutes = Math.floor((elapsedTime % 3600) / 60);
+      const seconds = elapsedTime % 60;
+
+      timerDisplay.textContent = `${String(hours).padStart(2, "0")}:${String(
+        minutes
+      ).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    }
+
+    function startTimer() {
+      if (isPaused) {
+        isPaused = false;
+        timerInterval = setInterval(() => {
+          elapsedTime++;
+          updateTime();
+        }, 1000);
+      }
+    }
+
+    function pauseTimer() {
+      isPaused = true;
+      clearInterval(timerInterval);
+    }
+
+    function resetTimer() {
+      isPaused = true;
+      clearInterval(timerInterval);
+      elapsedTime = 0;
+      updateTime();
+    }
+
+    startBtn.addEventListener("click", startTimer);
+    pauseBtn.addEventListener("click", pauseTimer);
+    resetBtn.addEventListener("click", resetTimer);
+
+    updateTime(); // Initial display
+
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("next");
+
+    var continueBTN = document.getElementById("continue");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    var homeBTN = document.getElementById("home");
+
+    btn.onclick = () => {
+      modal.style.display = "block";
+    };
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+    homeBTN.onclick = () => {
+      // Get the existing badges from local storage or initialize an empty array
+      let badges = JSON.parse(localStorage.getItem("badges")) || [];
+
+      // Add the new badge to the array
+      badges.push("Calm Beginner");
+
+      // Store the updated array back in local storage
+      localStorage.setItem("badges", JSON.stringify(badges));
+      window.location.href = "../index.html";
+    };
+    continueBTN.onclick = () => {
+      // Get the existing badges from local storage or initialize an empty array
+      let badges = JSON.parse(localStorage.getItem("badges")) || [];
+
+      // Add the new badge to the array
+      badges.push("Calm Beginner");
+
+      // Store the updated array back in local storage
+      localStorage.setItem("badges", JSON.stringify(badges));
+      window.location.href = "beginner_level_2.html";
+    };
+  </script>
+</html>

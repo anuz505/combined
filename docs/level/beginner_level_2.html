@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/individual_lesson.css" />
+    <title>Beginner Lessons</title>
+  </head>
+  <header>
+    <h1>AuraSync</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../aboutus.html">About</a>
+      <a href="../lesson.html" class="active">Lessons</a>
+      <a href="../profile.html">Profile</a>
+    </nav>
+  </header>
+  <body>
+    <div class="lessons">
+      <div class="lesson1">
+        <div class="text">
+          <h1 class="l1">Lesson 2</h1>
+          <h1>Gratitude practice</h1>
+          <p>
+            Take a moment to pause and reflect on the things you're grateful for
+            today. Practicing gratitude can improve your mood and overall mental
+            well-being.
+          </p>
+          <br />
+          <p>
+            Fill in the fields with your thoughts. Be as specific as possible.
+          </p>
+        </div>
+      </div>
+      <form id="gratitude-form" class="gratitude-form">
+        <label>1.</label>
+        <textarea id="input1" required></textarea>
+        <label>2.</label>
+        <textarea id="input2" required></textarea>
+        <label>3.</label>
+        <textarea id="input3" required></textarea>
+        <button type="submit" class="next">Submit</button>
+        <div class="submitted"></div>
+      </form>
+      <button id="next" class="next" disabled>Next</button>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+
+          <h2>🎉 Great Job! You've Completed the Gratitude Practice! 🎉</h2>
+          <img src="../pics/badges/GratefulHeart.jpeg" alt="" />
+          <b>Badge Earned: Grateful Heart 🏅</b>
+          <div class="result" id="result"></div>
+
+          <button id="continue">Continue</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("gratitude-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const input1 = document.getElementById("input1").value;
+          const input2 = document.getElementById("input2").value;
+          const input3 = document.getElementById("input3").value;
+          const resultDiv = document.getElementById("result");
+          resultDiv.innerHTML = `
+        <h2>Things you are grateful for:</h2>
+        <p>1. ${input1}</p>
+        <p>2. ${input2}</p>
+        <p>3. ${input3}</p>
+      `;
+          // Clear the input fields
+          document.getElementById("input1").value = "";
+          document.getElementById("input2").value = "";
+          document.getElementById("input3").value = "";
+          // Show the submitted message
+          const submittedMessage = document.querySelector(".submitted");
+          submittedMessage.innerHTML = "Submitted!";
+          submittedMessage.classList.add("fade-in");
+          // Enable the "Next" button
+          document.getElementById("next").disabled = false;
+
+          // Fade away the message after 3 seconds
+          setTimeout(() => {
+            submittedMessage.classList.remove("fade-in");
+            submittedMessage.classList.add("fade-out");
+          }, 3000);
+        });
+
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("next");
+
+      var continueBTN = document.getElementById("continue");
+
+      var span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = () => {
+        modal.style.display = "block";
+      };
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      continueBTN.onclick = () => {
+        window.location.href = "beginner_level_3.html";
+        // Get the existing badges from local storage or initialize an empty array
+        let badges = JSON.parse(localStorage.getItem("badges")) || [];
+
+        // Add the new badge to the array
+        badges.push("grateful_heart");
+
+        // Store the updated array back in local storage
+        localStorage.setItem("badges", JSON.stringify(badges));
+      };
+    </script>
+  </body>
+</html>

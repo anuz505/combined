@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #d4ccc5;
+}
+header {
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+  background-color: white;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 99px;
+  padding: 10px;
+}
+header nav a.active {
+  color: white;
+  background-color: black;
+}
+header nav a:hover {
+  color: white;
+  background-color: black;
+}
+
+header nav:hover > a:not(:hover) {
+  color: black;
+  background-color: white;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* Space between assets and content */
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  background-color: #d4ccc5;
+}
+
+.assets {
+  padding: 10px; /* Padding around the assets container */
+  margin-right: 20px; /* Space between assets and content */
+}
+
+.assets .tauko {
+  width: 650px; /* Increased by 30% from 500px */
+  height: 487.5px; /* Increased by 30% from 375px */
+  margin-bottom: 20px; /* Space between tauko and fool */
+  margin-top: 60px;
+}
+
+.fool {
+  width: 507px; /* Increased by 30% from 390px */
+  height: 377px; /* Increased by 30% from 290px */
+  position: absolute;
+  margin-top: 10px; /* Space between fool and tauko */
+  margin-left: 29px; /* Space between fool and content */
+}
+
+.hero-text h2 {
+  margin-top: 30px;
+  font-size: 3rem;
+  z-index: 1;
+  position: relative;
+  color: #192b3d;
+  font-family: "Dela Gothic One";
+  font-weight: 400;
+}
+.hero-text p {
+  font-size: 1rem;
+  z-index: 1;
+  position: relative;
+  color: black;
+  font-family: "Albert Sans";
+  width: 75%;
+  margin-top: 20px;
+  margin-left: 70px;
+}
+/*carousel*/
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+iframe {
+  width: 300px;
+  height: 300px;
+}
+.approach {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+
+.text {
+  width: 50%;
+}
+.text h2 {
+  font-size: 3rem;
+  z-index: 1;
+  position: relative;
+  color: #192b3d;
+  font-family: "Dela Gothic One";
+  font-weight: 400;
+}
+.text p {
+  font-size: 1rem;
+  z-index: 1;
+  position: relative;
+  color: black;
+  font-family: "Albert Sans";
+  width: 75%;
+}
+.approach img {
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+.runningbrain:hover {
+  transform: scale(1.1) rotate(14deg);
+  transition: ease-in-out 0.5s;
+}
+
+.btn {
+  margin-top: 20px;
+
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #cc5b4f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s,
+    border-color 0.3s;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.whychoose {
+  background-color: white;
+}
+.approach ul {
+  list-style-type: none;
+  margin-top: 20px;
+  padding: 0;
+  font-family: "Albert Sans";
+}
+
+
+.music-icon {
+  position: absolute;
+  margin-left: 600px;
+  margin-top: 50px;
+
+  border-radius: 50%;
+}
+
+.music-icon:hover {
+  transform: scale(1.1);
+}
+/* Profile Dropdown Style */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 60%;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content p {
+  margin: 0;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.logout-button {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+}
+
+.logout-button:hover {
+  background-color: #ddd;
+}
+
+.profile-dropdown:hover .dropdown-content {
+  display: block;
+}

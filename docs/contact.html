@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Mental Health in Bodybuilding</title>
+    <link rel="stylesheet" href="./css/contact.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AuraSync</h1>
+      <nav>
+        <a href="./index.html" class="active">Home</a>
+        <a href="./aboutus.html">About</a>
+        <a href="./lesson.html">Lessons</a>
+
+        <a href="./contact.html">Contact</a>
+        <a href="blogs.html">Blogs and Videos</a>
+
+        <a href="./wellnessTracker.html">wellnessTracker</a>
+        <div class="profile-dropdown">
+          <img
+            src="pics/profile-icon.jpg"
+            alt="Profile Icon"
+            class="profile-icon"
+          />
+          <div class="dropdown-content">
+            <p>Hello, User</p>
+            <a href="./login.html" class="logout-button">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contact" id="contact">
+        <h1 class="heading"><span>Contact</span> Us</h1>
+        <div class="row">
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input
+              type="hidden"
+              name="access_key"
+              value="49ffd318-4ac8-4e27-ada0-9d0336a21fd3"
+            />
+            <h3>Get in Touch</h3>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              class="box"
+              required
+            />
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              class="box"
+              required
+            />
+            <input
+              id="subject"
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              class="box"
+              required
+            />
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Your Message"
+              class="box"
+              required
+            ></textarea>
+            <input
+              type="submit"
+              name="submit"
+              value="Send Message"
+              class="btn"
+            />
+          </form>
+          <div class="image-container">
+            <img
+              src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXZiYTBxcGtubzY5MndhdGkzaW1ua2xxY2N4NnB3N3N4bjZpa21seSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KCpK92XQHCutWBUz3W/giphy.webp"
+              alt="Contact Image"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      document
+        .getElementById("contact")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+          const subject = document.getElementById("subject").value;
+          // Simple validation
+          if (name && email && message && subject) {
+            alert(`Thank you,${name}! Your message has been sent.`);
+            document.getElementById("contactForm").reset();
+          } else {
+            alert("Please fill out all fields.");
+          }
+        });
+    </script>
+  </body>
+</html>

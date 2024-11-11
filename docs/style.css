@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scrollbar-width: none;
+}
+
+header {
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 99px;
+  padding: 10px;
+}
+header nav a.active {
+  color: white;
+  background-color: black;
+}
+header nav a:hover {
+  color: white;
+  background-color: black;
+}
+
+header nav:hover > a:not(:hover) {
+  color: black;
+  background-color: white;
+}
+.cloud {
+  height: 125vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.yellowhand {
+  position: absolute;
+  left: -12%;
+  height: 35%;
+  top: 8%;
+}
+/*Animation that moves the background*/
+@keyframes jigglyBackground {
+  0% {
+    scale: 1;
+  }
+  20% {
+  }
+  40% {
+    scale: 1.02;
+  }
+  60% {
+  }
+  80% {
+  }
+  100% {
+    scale: 1;
+  }
+}
+.mainContainer {
+  overflow: hidden;
+}
+.heropage {
+  background-image: url("/Project/pics/assets/1x/Asset 16.png"),
+    url("./pics/assets/1x/patches.png"), url("./pics/assets/1x/Asset 13.png");
+  background-size: cover, contain, cover;
+  background-position: 0% 0%, center left, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: left;
+  padding-left: 20px;
+  animation: jigglyBackground 8s linear infinite;
+  transition: all ease-in 0.5s;
+  overflow: hidden;
+}
+.hero-text {
+  margin-left: 5%;
+  scale: 1;
+}
+.hero-text h1 {
+  margin-top: 20px;
+  font-size: 3rem;
+  z-index: 1;
+  position: relative;
+  color: #192b3d;
+  font-family: "Dela Gothic One";
+  font-weight: 400;
+}
+.hero-text p {
+  font-size: 1.25rem;
+  z-index: 1;
+  position: relative;
+  color: black;
+  font-family: "Albert Sans";
+}
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #cc5b4f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s,
+    border-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.flowers {
+  position: absolute;
+  top: 1.5%;
+  left: -5%;
+  width: 35%;
+  height: auto;
+  margin-left: 10%;
+  z-index: 5;
+}
+.sparkle {
+  position: absolute;
+  top: 2%;
+  left: -2%;
+  width: 35%;
+  height: auto;
+  margin-left: 10%;
+  z-index: 5;
+}
+
+@keyframes brainflying {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+.twohands .Brain {
+  position: absolute;
+  height: 22%;
+  bottom: 30%;
+  right: 8%;
+  z-index: 5;
+  animation: brainflying 6s ease-in-out infinite;
+}
+
+.twohands .lefthand {
+  position: absolute;
+  bottom: 0;
+  right: 0; /* Position on the left */
+  height: 36.3%; /* Increased by 10% */
+  z-index: 3;
+  overflow: hidden;
+}
+
+.twohands .righthand {
+  position: absolute;
+  bottom: 0;
+  right: 0; /* Position on the left */
+  height: 52.8%; /* Increased by 10% */
+  z-index: 2;
+}
+
+.twohands .BackgroundGrass {
+  position: absolute;
+  bottom: 0;
+  right: -8%;
+  height: 44%; /* Increased by 10% */
+}
+.music-icon {
+  position: absolute;
+  margin-left: 1000px;
+
+  border-radius: 50%;
+}
+
+.music-icon:hover {
+  transform: scale(1.1);
+}
+/* Profile Dropdown Style */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 60%;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content p {
+  margin: 0;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.logout-button {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+}
+
+.logout-button:hover {
+  background-color: #ddd;
+}
+
+.profile-dropdown:hover .dropdown-content {
+  display: block;
+}

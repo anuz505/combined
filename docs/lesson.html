@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./pics/assets/icon.png" />
+    <link rel="stylesheet" href="./css/lesson_style.css" />
+    <title>Lessons</title>
+  </head>
+  <header>
+    <h1>AuraSync</h1>
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./aboutus.html">About</a>
+      <a href="./lesson.html" class="active">Lessons</a>
+
+      <a href="./contact.html">Contact</a>
+      <a href="blogs.html">Blogs and Videos</a>
+
+      <a href="./wellnessTracker.html">wellnessTracker</a>
+      <div class="profile-dropdown">
+        <img
+          src="pics/profile-icon.jpg"
+          alt="Profile Icon"
+          class="profile-icon"
+        />
+        <div class="dropdown-content">
+          <p>Hello, User</p>
+          <a href="./login.html" class="logout-button">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <div class="Main-container">
+      <div class="text">
+        <h1>AuraSync Lessons</h1>
+        <p>Select your level</p>
+      </div>
+      <section class="container">
+        <button
+          id="beginner-btn"
+          class="unlocked"
+          data-hover="Start with the basics"
+          onclick="navigateTo('./level/beginner_level_1.html'
+            
+          )"
+        >
+          Beginner
+        </button>
+        <button
+          id="intermediate-btn"
+          class="locked"
+          data-hover="Take it to the next level"
+        >
+          Intermediate
+        </button>
+        <button
+          id="advanced-btn"
+          class="locked"
+          data-hover="Master your Mindfulness"
+        >
+          Advanced
+        </button>
+      </section>
+      <a href="music.html">
+        <img
+          src="pics/music_icon.png"
+          alt="Music Icon"
+          class="music-icon"
+          height="80px"
+          width="80px"
+        />
+      </a>
+    </div>
+    <script>
+      function navigateTo(url) {
+        window.location.href = url;
+      }
+      const badges = JSON.parse(localStorage.getItem("badges"));
+      const badge = badges.find((badge) => badge === "mindfulness_newbie");
+      const intermediateBtn = document.getElementById("intermediate-btn");
+      if (badge === "mindfulness_newbie") {
+        intermediateBtn.classList.remove("locked");
+        intermediateBtn.classList.add("unlocked");
+        intermediateBtn.onclick = () =>
+          navigateTo("./level/intermediate_level_1.html");
+      }
+    </script>
+  </body>
+</html>

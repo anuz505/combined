@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="pics/assets/icon.png" />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>AuraSync</title>
+  </head>
+
+  <header>
+    <h1>AuraSync</h1>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="./aboutus.html">About</a>
+      <a href="./lesson.html">Lessons</a>
+      <a href="./contact.html">Contact</a>
+      <a href="blogs.html">Blogs and Videos</a>
+
+      <a href="./wellnessTracker.html">wellnessTracker</a>
+
+      <div class="profile-dropdown">
+        <img
+          src="pics/profile-icon.jpg"
+          alt="Profile Icon"
+          class="profile-icon"
+        />
+        <div class="dropdown-content">
+          <p>Hello, User</p>
+          <a href="./login.html" class="logout-button">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <div class="mainContainer">
+      <section class="heropage">
+        <img class="cloud" src="pics/assets/1x/Asset 1.png" alt="cloud" />
+        <img src="./pics/assets/1x/YellowHand.png" class="yellowhand" />
+        <img src="./pics/assets/1x/whiteSparkle.png" class="sparkle" />
+
+        <div class="hero-text">
+          <h1>Welcome to Mindful Journey</h1>
+          <p>Unlock the Power of Mindfulness, Level by Level</p>
+          <button class="cta-button">Get Started</button>
+        </div>
+        <img src="/docs/ 2.png" alt="" class="flowers" />
+        <div class="twohands">
+          <img class="Brain" src="./pics/assets/1x/Brain.png" />
+          <img class="lefthand" src="./pics/assets/1x/left hand.png" />
+          <img class="righthand" src="./pics/assets/1x/Right hand.png" />
+
+          <img
+            class="BackgroundGrass"
+            src="./pics/assets/1x/BackgroundGrass.png"
+          />
+          <a href="music.html">
+            <img
+              src="pics/music_icon.png"
+              alt="Music Icon"
+              class="music-icon"
+              height="80px"
+              width="80px"
+            />
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+
+  <script>
+    const ctaButton = document.querySelector(".cta-button");
+    ctaButton.addEventListener("click", () => {
+      window.location.href = "./lesson.html";
+    });
+  </script>
+</html>

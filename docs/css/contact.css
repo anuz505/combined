@@ -1,0 +1,175 @@
+/*Contact us*/
+.contact {
+
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+  }
+  .contact h1 {
+    margin-left: 30px;
+    font-size: 3rem;
+    z-index: 1;
+    position: relative;
+    color: #192b3d;
+    font-family: "Dela Gothic One";
+    font-weight: 400;
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+  }
+  .row img {
+    border-radius: 20px;
+  }
+  
+  form {
+    flex: 1;
+    background-color: #192b3d;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  form h3 {
+    margin-bottom: 20px;
+    font-family: "Dela Gothic One", sans-serif;
+  }
+  
+  form .box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Albert Sans", sans-serif;
+  }
+  
+  form .box::placeholder {
+    color: #ccc;
+  }
+  
+  form .btn {
+    background-color: #cc5b4f;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  form .btn:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  footer {
+    background-color: #192b3d; /* Dark blue-gray background color */
+    color: white; /* White text color for contrast */
+    font-family: "Albert Sans", sans-serif; /* Font family Albert Sans */
+    padding: 20px; /* Padding for spacing inside the footer */
+    text-align: center; /* Center-align the text */
+  }
+/*navbar*/
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scrollbar-width: none;
+}
+
+header {
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 99px;
+  padding: 10px;
+}
+header nav a.active {
+  color: white;
+  background-color: black;
+}
+header nav a:hover {
+  color: white;
+  background-color: black;
+}
+
+header nav:hover > a:not(:hover) {
+  color: black;
+  background-color: white;
+}
+/* Profile Dropdown Style */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+  }
+  
+  .profile-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 60%;
+    
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content p {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .logout-button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .logout-button:hover {
+    background-color: #ddd;
+  }
+  
+  .profile-dropdown:hover .dropdown-content {
+    display: block;
+  }
+  

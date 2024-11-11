@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+/*navbar*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scrollbar-width: none;
+}
+
+header {
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 99px;
+  padding: 10px;
+}
+header nav a.active {
+  color: white;
+  background-color: black;
+}
+header nav a:hover {
+  color: white;
+  background-color: black;
+}
+
+header nav:hover > a:not(:hover) {
+  color: black;
+  background-color: white;
+}
+/* Profile Dropdown Style */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+  }
+  
+  .profile-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 60%;
+    
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content p {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .logout-button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .logout-button:hover {
+    background-color: #ddd;
+  }
+  
+  .profile-dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+
+  
+/* Personal Stories Section */
+.story-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 86px auto;
+  max-width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.story-form h2 {
+  font-size: 1.5em;
+  color: #4CAF50;
+  margin-bottom: 15px;
+}
+
+.story-form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.story-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.story-form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.story-form button:hover {
+  background-color: #45a049;
+}
+
+/* Stories List Section */
+.story-list {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.story-list h2 {
+  font-size: 1.5em;
+  color: #4CAF50;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#storiesUl {
+  list-style: none;
+  padding: 0;
+}
+
+#storiesUl li {
+  background-color: #f4f4f4;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#storiesUl li p {
+  font-size: 1em;
+  color: #333;
+  margin: 5px 0;
+}
+
+#storiesUl li .story-author {
+  font-size: 0.9em;
+  color: #666;
+  text-align: right;
+}
+
+/* Read More and Delete Buttons */
+.read-more, .delete-story {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.read-more:hover, .delete-story:hover {
+  background-color: #45a049;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .Container {
+      grid-template-columns: 1fr;
+  }
+  .blog-list {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* Video Guide Page Styles */
+.video-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.video-item {
+  flex: 1 1 20%;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.video-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.video-item video {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.video-item .video-title {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .video-item {
+      flex: 1 1 45%;
+  }
+}
+
+story-header{
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+
+}
+story-header h1{
+  font-family: "Dela Gothic One";
+  font-size: 2rem;
+}

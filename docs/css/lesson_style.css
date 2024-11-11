@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+
+:root {
+  --color-primary: #3498db; /* Bright Blue */
+  --color-secondary: #2ecc71; /* Fresh Green */
+  --color-accent: #e74c3c; /* Vivid Red */
+  --color-background: #d4ccc5; /* Light Gray */
+  --color-text: #2c3e50; /* Dark Blue-Gray */
+  --color-white: #ffffff; /* White */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+}
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 99px;
+  padding: 10px;
+}
+header nav a.active {
+  color: white;
+  background-color: black;
+}
+header nav a:hover {
+  color: white;
+  background-color: black;
+}
+
+header nav:hover > a:not(:hover) {
+  color: black;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  position: relative;
+}
+
+.container button {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-color: #be6a5d;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s,
+    border-color 0.3s;
+  position: relative;
+}
+
+.container .unlocked:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  border-color: #be6a5d;
+  color: #132b3b;
+  font-family: "Albert Sans";
+}
+.container .locked {
+  background-color: #132b3b;
+}
+.container .locked:hover {
+  background-color: #132b3b;
+  color: white;
+}
+
+.container .unlocked::after {
+  content: attr(data-hover);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  background-color: #d3a13d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.container .locked::after {
+  content: "Locked";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  background-color: #d3a13d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.container button:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Positioning buttons diagonally */
+.container button:nth-child(1) {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  /* background-color: #be6a5d; */
+}
+
+.container button:nth-child(2) {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.container button:nth-child(3) {
+  position: absolute;
+  top: 60%;
+  left: 70%;
+}
+
+.text {
+  font-size: 3rem; /* Adjust the size as needed */
+  font-weight: 700; /* Bold font weight */
+  color: var(--color-text); /* Use a primary color variable */
+  text-align: left; /* Center align the text */
+  margin-left: 5%;
+  margin-top: 2%;
+  text-transform: uppercase; /* Transform text to uppercase */
+  letter-spacing: 2px; /* Add some letter spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+  padding-bottom: 10px; /* Add some padding at the bottom */
+  font-family: "Dela Gothic One";
+}
+.text p {
+  font-size: 1.25rem;
+  font-family: "Albert Sans";
+
+  margin-right: 5%;
+}
+.music-icon {
+  position: absolute;
+  margin-left: 1400px;
+
+  border-radius: 50%;
+}
+
+.music-icon:hover {
+  transform: scale(1.1);
+}
+/* Profile Dropdown Style */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 60%;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content p {
+  margin: 0;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.logout-button {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+}
+
+.logout-button:hover {
+  background-color: #ddd;
+}
+
+.profile-dropdown:hover .dropdown-content {
+  display: block;
+}

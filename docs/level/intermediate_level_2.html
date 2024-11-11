@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/individual_lesson.css" />
+    <title>Level 2 Lesson</title>
+    <header style="background-color: white">
+      <h1>AuraSync</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../aboutus.html">About</a>
+        <a href="../lesson.html" class="active">Lessons</a>
+        <a href="../profile.html">Profile</a>
+      </nav>
+    </header>
+  </head>
+  <style>
+    .wrapper {
+      font-family: "Arial", sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .container {
+      text-align: center;
+      width: 300px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .visual-guide {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .nose {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 10px;
+    }
+
+    .nostril-left {
+      background-color: #ff6961;
+    }
+
+    .nostril-right {
+      background-color: #61c0ff;
+    }
+
+    .instructions {
+      margin-bottom: 20px;
+    }
+
+    .start-button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .start-button:hover {
+      background-color: #45a049;
+    }
+
+    .timer {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .next {
+      padding: 10px 20px;
+      background-color: grey;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: not-allowed; /* Initially disabled */
+    }
+  </style>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>Alternate Nostril Breathing</h1>
+        <p>
+          Follow the visual guide and practice this breathing technique to
+          balance your mind and reduce anxiety.
+        </p>
+
+        <div class="visual-guide">
+          <div class="nose nostril-left"></div>
+          <div class="nose nostril-right"></div>
+        </div>
+
+        <div class="instructions">
+          <p id="instruction-text">Inhale through your left nostril</p>
+        </div>
+
+        <button id="start-btn" class="start-button">Start Exercise</button>
+
+        <div id="timer" class="timer">10:00</div>
+      </div>
+      <button id="next" class="next" disabled>Next</button>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+
+          <h2>
+            🎉 Amazing Work! You've Mastered the Box Breathing Technique! 🎉
+          </h2>
+          <b>Badge Earned: "Serene Mind" 🧘‍♂️</b>
+          <p>
+            You've successfully completed the box breathing exercise! Feel the
+            peace within you, and remember, this is a powerful tool to center
+            yourself anytime.
+          </p>
+          <button id="continue">Continue</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let totalTime = 600; // 10 minutes in seconds
+      let interval;
+      let isLeftNostril = true; // Start with left nostril
+
+      document.getElementById("start-btn").addEventListener("click", () => {
+        startExercise();
+      });
+
+      function startExercise() {
+        interval = setInterval(updateTimer, 1000);
+        alternateBreathing();
+      }
+
+      function updateTimer() {
+        if (totalTime <= 0) {
+          clearInterval(interval);
+          document.getElementById("instruction-text").textContent =
+            "Well done! You've completed the exercise!";
+          document.getElementById("next").disabled = false; // Enable "Next" button
+          document.getElementById("next").style.cursor = "pointer"; // Change cursor to pointer
+          return;
+        }
+
+        totalTime--;
+        const minutes = Math.floor(totalTime / 60);
+        const seconds = totalTime % 60;
+
+        document.getElementById("timer").textContent = `${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      }
+
+      function alternateBreathing() {
+        setInterval(() => {
+          if (isLeftNostril) {
+            document.getElementById("instruction-text").textContent =
+              "Inhale through your left nostril";
+            document.querySelector(".nostril-left").style.backgroundColor =
+              "#ff6961"; // Highlight left nostril
+            document.querySelector(".nostril-right").style.backgroundColor =
+              "#61c0ff"; // Reset right nostril
+          } else {
+            document.getElementById("instruction-text").textContent =
+              "Exhale through your right nostril";
+            document.querySelector(".nostril-left").style.backgroundColor =
+              "#ccc"; // Reset left nostril
+            document.querySelector(".nostril-right").style.backgroundColor =
+              "#61c0ff"; // Highlight right nostril
+          }
+
+          isLeftNostril = !isLeftNostril; // Alternate nostrils
+        }, 4000); // 4 seconds per cycle (inhale + exhale)
+      }
+
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("next");
+
+      var continueBTN = document.getElementById("continue");
+
+      var span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = () => {
+        modal.style.display = "block";
+      };
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      continueBTN.onclick = () => {
+        // Get the existing badges from local storage or initialize an empty array
+        let badges = JSON.parse(localStorage.getItem("badges")) || [];
+
+        // Add the new badge to the array
+        badges.push("mindfulness_newbie");
+
+        // Store the updated array back in local storage
+        localStorage.setItem("badges", JSON.stringify(badges));
+        window.location.href = "./intermediate_level_2.html";
+      };
+    </script>
+  </body>
+</html>
