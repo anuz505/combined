@@ -14,8 +14,11 @@
         <a href="./index.html">Home</a>
         <a href="./aboutus.html">About</a>
         <a href="./lesson.html">Lessons</a>
-        <a href="./wellnessTracker.html">wellnessTracker</a>
+        <a href="./contact.html">Contact</a>
+        <a href="blogs.html">Blogs and Videos</a>
+
         <a href="#Profile" class="active">Profile</a>
+        <a href="./wellnessTracker.html">wellnessTracker</a>
 
         <div class="profile-dropdown">
           <img
@@ -44,7 +47,7 @@
         />
         <div class="profile-info">
           <div class="username-container">
-            <h1 id="username2">Username</h1>
+            <h1 id="username2">Nickname</h1>
             <img
               id="flag"
               class="flag"
@@ -67,13 +70,13 @@
     <div id="loginModal" class="modal">
       <div class="modal-content">
         <div class="login-container">
-          <h1>Login</h1>
-          <label>Username:</label
-          ><input type="text" id="username" placeholder="Username" required />
-          <label>Bio:</label> <input type="text" id="bio" />
+          <h1>Create your profile</h1>
+          <label>Nickname:</label
+          ><input type="text" id="username" placeholder="Nickname" required />
+          <label>Bio:</label> <input type="text" id="bio" placeholder="Something about you"/>
           <label>Country:</label
           ><input type="text" id="country" placeholder="Country" />
-          <button onclick="login()">Login</button>
+          <button onclick="login()">Save</button>
           <p id="message"></p>
         </div>
       </div>
@@ -113,7 +116,7 @@
       const countryGet = localStorage.getItem("country");
 
       document.getElementById("username2").textContent = usernameGet
-        ? `Username: ${usernameGet}`
+        ? `Nickname: ${usernameGet}`
         : "No user information found.";
       document.getElementById("bio2").textContent = bioGet
         ? `Bio: ${bioGet}`
