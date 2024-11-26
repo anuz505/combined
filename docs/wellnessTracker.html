@@ -1,242 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mental Health Tracker</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mental Health Tracker to track your mood, stress, and anxiety." />
+  <meta name="keywords" content="mental health, mood tracker, stress, anxiety, wellness" />
+  <title>Mental Health Tracker</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Droid+Sans&family=Tangerine:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Droid+Sans&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="icon" type="image/x-icon" href="Images/favicon.ico" />
-    <link rel="stylesheet" href="./css/wellnessTracker.css" />
-    <link rel="stylesheet" href="./css/moodtracker.css" />
+  <link rel="icon" type="image/x-icon" href="Images/favicon.ico" />
+  <link rel="stylesheet" href="./css/wellnessTracker.css" />
+  <link rel="stylesheet" href="./css/moodtracker.css" />
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="./js/wellnesstracker.js"></script>
-  </head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="./js/wellnesstracker.js"></script>
+</head>
 
-  <body>
-    <header>
-      <h1>AuraSync</h1>
-      <nav>
-        <a href="./index.html">Home</a>
-        <a href="./aboutus.html">About</a>
-        <a href="./lesson.html">Lessons</a>
-
-        <a href="./contact.html">Contact</a>
-        <a href="./profile.html">Profile</a>
-
-        <a href="./wellnessTracker.html" class="active">wellnessTracker</a>
-        <div class="profile-dropdown">
-          <img
-            src="pics/profile-icon.jpg"
-            alt="Profile Icon"
-            class="profile-icon"
-          />
-          <div class="dropdown-content">
-            <p>Hello, User</p>
-            <a href="./login.html" class="logout-button">Logout</a>
-          </div>
+<body>
+  <header>
+    <h1>AuraSync</h1>
+    <nav>
+      <a href="./index.html" class="active">Home</a>
+      <a href="./aboutus.html">About</a>
+      <a href="./lesson.html">Lessons</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./wellnessTracker.html" class="active">Wellness Tracker</a>
+      <div class="profile-dropdown">
+        <img src="pics/profile-icon.jpg" alt="User Profile Icon" class="profile-icon" />
+        <div class="dropdown-content">
+          <p>Hello, User</p>
+          <a href="./login.html" class="logout-button">Logout</a>
         </div>
-      </nav>
-    </header>
-
-    <h1 id="page-title">Mental Health Tracker</h1>
-    <button id="quiz-popup-button">Take Quiz!</button>
-    <a href="music.html">
-      <img
-        src="pics/music_icon.png"
-        alt="Music Icon"
-        class="music-icon"
-        height="80px"
-        width="80px"
-      />
-    </a>
-    <!--The Modal-->
-    <div id="myModal" class="modal">
-      <!--modal Content-->
-      <div class="modal-content">
-        <!--Close Button-->
-        <span id="close">&times;</span>
-
-        <form id="quiz" onsubmit="onFormSubmit(); return false;">
-          <label for="today-date">Today's Date</label>
-          <input type="date" name="today-date" />
-
-          <br />
-          <p>
-            1. How was your day on a scale from 1-5? (1 is very bad, 5 is very
-            good)
-          </p>
-          <input type="radio" name="overall" value="1" />
-          <label for="1">1</label>
-          <input type="radio" name="overall" value="2" />
-          <label for="2">2</label>
-          <input type="radio" name="overall" value="3" />
-          <label for="3">3</label>
-          <input type="radio" name="overall" value="4" />
-          <label for="4">4</label>
-          <input type="radio" name="overall" value="5" />
-          <label for="5">5</label>
-
-          <br />
-          <p>
-            2. How was your Anxiety on a scale from 1-5? (1 is very low, 5 is
-            very high)
-          </p>
-          <input type="radio" name="anxiety" value="1" />
-          <label for="1">1</label>
-          <input type="radio" name="anxiety" value="2" />
-          <label for="2">2</label>
-          <input type="radio" name="anxiety" value="3" />
-          <label for="3">3</label>
-          <input type="radio" name="anxiety" value="4" />
-          <label for="4">4</label>
-          <input type="radio" name="anxiety" value="5" />
-          <label for="5">5</label>
-
-          <br />
-          <p>
-            3. How was your stress on a scale from 1-5? (1 is very low, 5 is
-            very high)
-          </p>
-          <input type="radio" name="stress" value="1" />
-          <label for="1">1</label>
-          <input type="radio" name="stress" value="2" />
-          <label for="2">2</label>
-          <input type="radio" name="stress" value="3" />
-          <label for="3">3</label>
-          <input type="radio" name="stress" value="4" />
-          <label for="4">4</label>
-          <input type="radio" name="stress" value="5" />
-          <label for="5">5</label>
-
-          <br />
-          <p>
-            4. How was your Satisfaction on a scale from 1-5? (1 is very low, 5
-            is very high)
-          </p>
-          <input type="radio" name="satisfaction" value="1" />
-          <label for="1">1</label>
-          <input type="radio" name="satisfaction" value="2" />
-          <label for="2">2</label>
-          <input type="radio" name="satisfaction" value="3" />
-          <label for="3">3</label>
-          <input type="radio" name="satisfaction" value="4" />
-          <label for="4">4</label>
-          <input type="radio" name="satisfaction" value="5" />
-          <label for="5">5</label>
-
-          <br />
-          <label for="notes">Day Summary:</label>
-          <input type="text" name="notes" />
-
-          <br />
-          <input type="submit" value="Submit" />
-        </form>
       </div>
-    </div>
+    </nav>
+  </header>
 
-    <table id="quiz-history">
-      <tr>
-        <th>Date</th>
-        <th>Overall</th>
-        <th>Stress</th>
-        <th>Anxiety</th>
-        <th>Daily Satisfaction</th>
-        <th>Notes</th>
-        <th>Actions</th>
-      </tr>
-    </table>
+  <video autoplay muted loop id="background-video">
+    <source src="videos/meditate.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-    <div id="feedback-message"></div>
-    <div id="video-recommendation" style="display: none">
-      <h2>Video Recommendation</h2>
-      <video id="recommendation-video" width="600" controls>
-        <source id="video-source" src="" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div class="container">
-      <h1>Mood Tracker</h1>
-      <form id="journalForm">
-        <label for="date">Date:</label>
-        <input type="date" id="date" required />
+  <h2 id="page-title">Mental Health Tracker</h2>
+  <button id="quiz-popup-button">Take Quiz!</button>
 
-        <div>
-          <label for="mood">Mood:</label>
-          <div class="mood-options">
-            <label
-              ><input type="radio" name="mood" value="happy" checked />😊
-              Happy</label
-            >
-            <label><input type="radio" name="mood" value="sad" />😢 Sad</label>
-            <label
-              ><input type="radio" name="mood" value="calm" />😌 Calm</label
-            >
-            <label
-              ><input type="radio" name="mood" value="anxious" />😟
-              Anxious</label
-            >
-            <label
-              ><input type="radio" name="mood" value="energetic" />💪
-              Energetic</label
-            >
-            <label
-              ><input type="radio" name="mood" value="stressed" />😣
-              Stressed</label
-            >
-            <label
-              ><input type="radio" name="mood" value="confident" />😎
-              Confident</label
-            >
-            <label
-              ><input type="radio" name="mood" value="frustrated" />😤
-              Frustrated</label
-            >
-            <label
-              ><input type="radio" name="mood" value="motivated" />🚀
-              Motivated</label
-            >
-          </div>
+  <!-- Modal for Quiz -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h2>Wellness Quiz</h2>
+      <form id="quiz" onsubmit="onFormSubmit(); return false;">
+      <span id="close">&times;</span>
+      <form id="quiz">
+        <label for="today-date">Today's Date</label>
+        <input type="date" name="today-date">
+
+        <p>1. How was your day on a scale from 1-5? (1 is very bad, 5 is very good)</p>
+        <div class="radio-group">
+          <input type="radio" name="overall" value="1" id="overall1"><label for="overall1">1</label>
+          <input type="radio" name="overall" value="2" id="overall2"><label for="overall2">2</label>
+          <input type="radio" name="overall" value="3" id="overall3"><label for="overall3">3</label>
+          <input type="radio" name="overall" value="4" id="overall4"><label for="overall4">4</label>
+          <input type="radio" name="overall" value="5" id="overall5"><label for="overall5">5</label>
         </div>
-        <div>
-          <label for="entry">Notes: </label>
-          <textarea id="entry" rows="8" required></textarea>
-        </div>
-        <button type="button" onclick="submitForm()">Submit</button>
+
+        <p>2. How was your Anxiety on a scale from 1-5? (1 is very low, 5 is very high)</p>
+        <div class="radio-group">
+        <input type="radio" name="Anxiety" value="1"><label for="1">1</label>
+        <input type="radio" name="Anxiety" value="2"><label for="2">2</label>
+        <input type="radio" name="Anxiety" value="3"><label for="3">3</label>
+        <input type="radio" name="Anxiety" value="4"><label for="4">4</label>
+        <input type="radio" name="Anxiety" value="5"><label for="5">5</label>
+      </div>
+
+        <p>3. How was your stress on a scale from 1-5? (1 is very low, 5 is very high)</p>
+        <div class="radio-group">
+        <input type="radio" name="stress" value="1"><label for="1">1</label>
+        <input type="radio" name="stress" value="2"><label for="2">2</label>
+        <input type="radio" name="stress" value="3"><label for="3">3</label>
+        <input type="radio" name="stress" value="4"><label for="4">4</label>
+        <input type="radio" name="stress" value="5"><label for="5">5</label>
+      </div>
+
+        <p>4. How was your Satisfaction on a scale from 1-5? (1 is very low, 5 is very high)</p>
+        <div class="radio-group">
+        <input type="radio" name="Satisfaction" value="1"><label for="1">1</label>
+        <input type="radio" name="Satisfaction" value="2"><label for="2">2</label>
+        <input type="radio" name="Satisfaction" value="3"><label for="3">3</label>
+        <input type="radio" name="Satisfaction" value="4"><label for="4">4</label>
+        <input type="radio" name="Satisfaction" value="5"><label for="5">5</label>
+      </div>
+
+        <label for="notes">Day Summary:</label>
+        <input type="text" name="notes">
+        <input type="submit" value="Submit">
       </form>
+    </div>
+  </div>
 
-      <div id="tips">
-        <h2>Tips for Your Mood:</h2>
-        <ul id="moodTipsList">
-          <!-- Tips will be dynamically populated here -->
-        </ul>
-        <p id="moodTips">Tips will appear here based on your mood selection.</p>
+  <!-- Mood History Table -->
+  <table id="quiz-history">
+    <tr>
+      <th>Date</th>
+      <th>Overall</th>
+      <th>Stress</th>
+      <th>Anxiety</th>
+      <th>Daily Satisfaction</th>
+      <th>Notes</th>
+      <th>Actions</th>
+    </tr>
+  </table>
+
+  <div id="feedback-message"></div>
+  <div id="video-recommendation" style="display: none;">
+    <h2>Video Recommendation</h2>
+    <video id="recommendation-video" width="600" controls>
+        <source id="video-source" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+  
+
+  <!-- Tips and Mood History Section -->
+  <div class="container">
+    <h1>Mood Tracker</h1>
+    <form id="journalForm">
+      <label for="date">Date:</label>
+      <input type="date" id="date" required />
+
+      <div>
+        <label for="mood">Mood:</label>
+        <div class="mood-options">
+          <label><input type="radio" name="mood" value="happy" checked />😊 Happy</label>
+          <label><input type="radio" name="mood" value="sad" />😢 Sad</label>
+          <label><input type="radio" name="mood" value="calm" />😌 Calm</label>
+          <label><input type="radio" name="mood" value="anxious" />😟 Anxious</label>
+          <label><input type="radio" name="mood" value="energetic" />💪 Energetic</label>
+          <label><input type="radio" name="mood" value="stressed" />😣 Stressed</label>
+          <label><input type="radio" name="mood" value="confident" />😎 Confident</label>
+          <label><input type="radio" name="mood" value="frustrated" />😤 Frustrated</label>
+          <label><input type="radio" name="mood" value="motivated" />🚀 Motivated</label>
+        </div>
       </div>
+      <div>
+        <label for="entry">Notes: </label>
+        <textarea id="entry" rows="8" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
 
-      <button onclick="displaySavedData()">History</button>
-      <div id="display-container"></div>
+    <div class="mood-history">
+      <h3>Mood History</h3>
+      <ul id="mood-history-list"></ul>
     </div>
 
-    <script src="./js/moodtracker.js"></script>
-  </body>
+    <div id="tips">
+      <h2>Tips for Your Mood:</h2>
+      <ul id="moodTipsList">
+        <!-- Tips will be dynamically populated here -->
+      </ul>
+      <p id="moodTips">Tips will appear here based on your mood selection.</p>
+    </div>
+
+    <button onclick="displaySavedData()">History</button>
+    <div id="display-container"></div>
+  </div>
+  </div>
+
+  <script src="js/moodtracker.js"></script>
+  <script>
+    // JavaScript handling for the quiz and journal form submissions
+    document.addEventListener('DOMContentLoaded', function () {
+      const quizForm = document.getElementById('quiz');
+      quizForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        onQuizFormSubmit();
+      });
+
+      const journalForm = document.getElementById('journalForm');
+      journalForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        onJournalFormSubmit();
+      });
+
+      document.getElementById("quiz-popup-button").onclick = function () {
+        document.getElementById("myModal").style.display = "block";
+      };
+
+      document.getElementById("close").onclick = function () {
+        document.getElementById("myModal").style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target === document.getElementById("myModal")) {
+          document.getElementById("myModal").style.display = "none";
+        }
+      };
+    });
+
+    function onQuizFormSubmit() {
+      console.log("Quiz form submitted!");
+      // Logic for submitting quiz data
+    }
+
+    function onJournalFormSubmit() {
+      const mood = document.querySelector('input[name="mood"]:checked').value;
+      const entry = document.getElementById("entry").value;
+      const date = document.getElementById("date").value;
+
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `<strong>${date}</strong>: Mood: ${mood} - ${entry}`;
+      document.getElementById("mood-history-list").appendChild(listItem);
+      document.getElementById("entry").value = '';
+    }
+  </script>
+</body>
 </html>

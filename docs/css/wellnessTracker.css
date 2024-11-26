@@ -53,11 +53,11 @@ body::before {
 }
 
 header {
-    background-color: white;
+    background-color: rgb(215, 215, 255, 0.3);
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: black;
 }
+
 header h1{
     color: black;
 }
@@ -106,7 +106,7 @@ html {
 }
 
 header {
-  border: 1px black solid;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,22 +135,23 @@ header nav:hover > a:not(:hover) {
   color: black;
   background-color: white;
 }
+
 /* Page Title */
 #page-title {
     text-align: center;
     font-size: 50px;
-    font-family: "Dela Gothic One";
+    font-family: 'Tangerine', serif;
     color: #0f1f7d; /* Calming blue */
- 
-    background-color: #d4ccc5;
-
-    
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
+
+
 
 /* Quiz Popup Button */
 #quiz-popup-button {
     display: block;
-
+    margin: 20px auto;
     padding: 15px 30px;
     font-size: 22px;
     background-color: #ff99cc; /* Soft pink */
@@ -159,7 +160,6 @@ header nav:hover > a:not(:hover) {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    font-family: "Albert Sans";
 }
 
 #quiz-popup-button:hover {
@@ -242,6 +242,43 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background-color: #1e88e5; /* Darker blue */
 }
+
+/* Styling for horizontal radio buttons */
+form input[type="radio"] {
+    margin-right: 5px;  /* Reduced space between the radio buttons */
+    display: inline-block; /* Ensure radio buttons are aligned horizontally */
+}
+
+/* Grouping labels for each question to align horizontally */
+form p {
+    display: flex;
+    gap: 10px; /* Slight space between the question and radio buttons */
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Ensuring radio buttons are inline and spaced properly */
+form label {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Grouping radio buttons horizontally */
+form .radio-group {
+    display: flex;
+    gap: 5px; /* Reduced gap between the radio buttons */
+    margin-bottom: 10px;
+}
+
+/* Optional: For better spacing and alignment of questions */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 
 /* Quiz History Table */
 #quiz-history {
@@ -340,7 +377,6 @@ form input[type="submit"]:hover {
     display: flex;
     flex-direction: row;
     gap: 20px; /* Space between icons */
-    
 }
 
 /* Common Styles for all Social Media Links */
@@ -410,50 +446,78 @@ footer {
     position: relative;
     display: inline-block;
     margin-left: 15px;
-  }
-  
-  .profile-icon {
-    width: 30px;
-    height: 30px;
+}
+
+.profile-icon {
+    width: 36px;
+    height: 36px;
     cursor: pointer;
-    border-radius: 60%;
-    
-  }
-  
-  .dropdown-content {
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-icon:hover {
+    border-color: #007bff;
+    transform: scale(1.1);
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #f9f9f9;
-    min-width: 120px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 5px;
-  }
-  
-  .dropdown-content p {
+    background-color: #ffffff;
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.dropdown-content p {
     margin: 0;
-    padding: 10px;
-    font-size: 14px;
+    padding: 12px;
+    font-size: 15px;
     color: #333;
-  }
-  
-  .logout-button {
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content p:hover {
+    background-color: #f5f5f5;
+}
+
+.logout-button {
     display: block;
-    padding: 10px;
+    padding: 12px;
     text-decoration: none;
     color: #333;
-    background-color: #f9f9f9;
+    font-weight: bold;
     text-align: center;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, color 0.3s ease;
     border-top: 1px solid #ddd;
-    border-radius: 0 0 5px 5px;
-  }
-  
-  .logout-button:hover {
-    background-color: #ddd;
-  }
-  
-  .profile-dropdown:hover .dropdown-content {
+}
+
+.logout-button:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+.profile-dropdown:hover .dropdown-content {
     display: block;
-  }
+}
+
+/* Animation for dropdown */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
   

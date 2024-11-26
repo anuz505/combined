@@ -1,4 +1,3 @@
-
 function submitForm() {
     const date = document.getElementById('date').value;
     const mood = document.querySelector('input[name="mood"]:checked').value;
